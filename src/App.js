@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+//css
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+// import dependencias
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useAuthValue } from './context/AuthContext';
+
+//pages
+
+import Home from './pages/home/Home';
+import Login from './pages/login/Login';
+import NotFound from './pages/notFound/NotFound';
+import Admin from './pages/admin/Admin';
+import GeneroLivro from './pages/admin/generoLivro/GeneroLivro';
+import ViewGeneroLivro from './pages/admin/viewGeneroLivro/ViewGeneroLivro';
+
+
 function App() {
+
+
+  const { authenticated } = useAuthValue();
+
+  const loadingUser = authenticated === undefined;
+
+
+  if (loadingUser) {
+    return <p>Carregando...</p>;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/admin' element={authenticated ? <Admin /> : <Navigate to='/login' /> }>
+            <Route path='genero' element={<GeneroLivro />}></Route>
+            <Route path='genero/:id' element={<ViewGeneroLivro />}></Route>
+          </Route>
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
