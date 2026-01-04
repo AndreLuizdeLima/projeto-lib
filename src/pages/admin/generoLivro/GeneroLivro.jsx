@@ -24,7 +24,7 @@ const GeneroLivro = () => {
             <h5>Gênero Livro</h5>
             <hr />
             <div className={styles.action_buttons}>
-                <button className={`btn btn-success`} ><i className="fas fa-plus"></i> Novo</button>
+                <Link className={`btn btn-success`} to='new'><i className="fas fa-plus"></i> Novo</Link>
                 <Link className={`btn btn-primary`} to={`${generoSelecionado}`}><i className="fas fa-edit"></i> Editar</Link>
                 <button className={`btn btn-danger`} onChange={deleteGenero}><i className="fas fa-trash"></i> Remover</button>
             </div>
@@ -54,7 +54,6 @@ const GeneroLivro = () => {
                     </div>
                 ))}
             </div>
-
         </div>
     )
 }

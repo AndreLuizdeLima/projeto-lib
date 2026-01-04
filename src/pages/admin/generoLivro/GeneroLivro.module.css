@@ -55,3 +55,13 @@
     color: rgb(0, 183, 255);
     border-radius: 10px;
 }
+
+.modal_create {
+    width: 30vw;
+    max-height: 30vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: aquamarine;
+}

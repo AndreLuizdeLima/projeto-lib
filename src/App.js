@@ -14,6 +14,7 @@ import NotFound from './pages/notFound/NotFound';
 import Admin from './pages/admin/Admin';
 import GeneroLivro from './pages/admin/generoLivro/GeneroLivro';
 import ViewGeneroLivro from './pages/admin/viewGeneroLivro/ViewGeneroLivro';
+import NewGeneroLivro from './pages/admin/newGeneroLivro/newGeneroLivro';
 
 
 function App() {
@@ -31,10 +32,12 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home />} />
+          {/* <Route path='/' element={<Home />} /> */}
+          <Route path='/' element={<Login />} />
           <Route path='/login' element={<Login />} />
           <Route path='/admin' element={authenticated ? <Admin /> : <Navigate to='/login' /> }>
             <Route path='genero' element={<GeneroLivro />}></Route>
+            <Route path='genero/new' element={<NewGeneroLivro />}></Route>
             <Route path='genero/:id' element={<ViewGeneroLivro />}></Route>
           </Route>
           <Route path='*' element={<NotFound />} />

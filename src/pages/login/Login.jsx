@@ -2,6 +2,7 @@ import styles from './Login.module.css'
 import { useAuthLogin } from '../../hooks/useAuthLogin'
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useAuthValue } from '../../context/AuthContext'
 
 const Login = () => {
   const { login, error, loading } = useAuthLogin();
@@ -11,21 +12,28 @@ const Login = () => {
   const [hidePassword, setHidePAssword] = useState('password')
   const [check, setCheck] = useState(false)
 
+  //contornando o login para a falta da api rest
+
+  const { login: authLogin } = useAuthValue();
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const success = await login({
-      email,
-      password
-    });
+    // const success = await login({
+    //   email,
+    //   password
+    // });
 
-    if (success) {
-      navigate('/admin');
-    }
+    // if (success) {
+    //   navigate('/admin');
+    // }
+
+    authLogin()
+    navigate('/admin');
   }
 
   useEffect(() => {
-  
-    if(check) {
+
+    if (check) {
       setHidePAssword('text')
     } else {
       setHidePAssword('password')
