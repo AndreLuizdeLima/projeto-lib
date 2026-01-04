@@ -1,24 +1,25 @@
-import styles from './newGeneroLivro.module.css'
+import styles from './NewAutorLivro.module.css'
+
 import { Link } from "react-router-dom"
 import { useState } from 'react'
 import { useNewItem } from '../../../hooks/useNewItem'
 
-const NewGeneroLivro = () => {
+const NewAutorLivro = () => {
 
     const [newNome, setNewNome] = useState('')
-    const { insert, loading, error } = useNewItem("GENERO");
+    const { insert, loading, error } = useNewItem("AUTOR");
 
     const saveNew = () => {
         insert({ nome: newNome })
     }
 
     return (
-        <div className={`container ${styles.genero_livro}`}>
-            <h5>Criar Gênero:</h5>
+        <div className={`container ${styles.autor_livro}`}>
+            <h5>Criar Autor:</h5>
             <hr />
             <div className={styles.action_buttons}>
                 <button className={`btn btn-success`} onClick={saveNew}><i className="far fa-save"></i> Salvar</button>
-                <Link className={`btn btn-danger`} to='/admin/genero'><i className="fas fa-times"></i> Cancelar</Link>
+                <Link className={`btn btn-danger`} to='/admin/autor'><i className="fas fa-times"></i> Cancelar</Link>
             </div>
             <hr />
             <div className='loading_message'>
@@ -31,7 +32,7 @@ const NewGeneroLivro = () => {
                 <div className="row">
                     <div className="col">
                         <label className="form-label">Nome:</label>
-                        <input type="text" className="form-control" placeholder="Novo gênero" aria-label="First name" value={newNome} onChange={(e) => setNewNome(e.target.value)} />
+                        <input type="text" className="form-control" placeholder="Novo Autor" aria-label="First name" value={newNome} onChange={(e) => setNewNome(e.target.value)} />
                     </div>
                     <div className="col last">
                         <label className="form-label">Id:</label>
@@ -43,4 +44,4 @@ const NewGeneroLivro = () => {
     )
 }
 
-export default NewGeneroLivro
+export default NewAutorLivro

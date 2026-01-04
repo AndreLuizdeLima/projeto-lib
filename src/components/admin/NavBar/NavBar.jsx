@@ -38,7 +38,7 @@ const NavBar = () => {
           <div className={styles.dropdown_menu}>
             <Link >Livros</Link>
             <Link to='genero'>Generos</Link>
-            <Link >Autores</Link>
+            <Link to='autor'>Autores</Link>
           </div>
         </div>
         <div className={styles.dropdown}>

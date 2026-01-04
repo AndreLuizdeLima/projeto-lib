@@ -21,6 +21,7 @@ const fetchReducer = (state, action) => {
 
 const endpoints = {
   GENERO: "http://localhost:5678/webhook/fea290ca-4ef4-44df-b484-192c5bef73f6/genero",
+  AUTOR: 'http://localhost:5678/webhook/fea290ca-4ef4-44df-b484-192c5bef73f6/autor'
 };
 
 export const useDeleteItem = (typeData) => {

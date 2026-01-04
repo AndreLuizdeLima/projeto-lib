@@ -16,9 +16,6 @@ const GeneroLivro = () => {
         deleteItem(generoSelecionado)
     }
 
-
-
-    if (loading) console.log('está em loading')
     return (
         <div className={`container ${styles.genero_livro}`}>
             <h5>Gênero Livro</h5>

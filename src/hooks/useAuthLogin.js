@@ -14,8 +14,6 @@ export const useAuthLogin = () => {
         }
     }
 
-
-    //http://localhost:5678/webhook/8e04b6ff-4edf-475b-9195-866c8141d996/auth?email=andreluiz@andre.com&password=12345
     const url = 'http://localhost:5678/webhook/8e04b6ff-4edf-475b-9195-866c8141d996/auth?'
 
     const login = async (data) => {
